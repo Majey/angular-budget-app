@@ -1,0 +1,21 @@
+
+<form class="form-inline" #itemForm= 'ngForm' (ngSubmit)= "onSubmit(itemForm)" >
+
+    <div class="form-group row">
+      <div class="col-md-3">
+        <input type="number" required name="amount" class="form-control" id="inputPassword2" placeholder="Amount" [(ngModel)]= "item.amount" >
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" required name="description" class="form-control" id="inputPassword2" placeholder="Description" [(ngModel)]= "item.description" >
+      </div>
+      
+      <div class="col-md-1">
+        <button type="submit" class="btn" [ngClass]="{ 'btn-primary': isNewItem, 'btn-success': !isNewItem }" [disabled]="itemForm.invalid" >
+          <P *ngIf = "!isNewItem; else save" >Add</P>
+          <ng-template #save >Save</ng-template>
+        </button>
+      </div>
+    </div>
+
+</form>
